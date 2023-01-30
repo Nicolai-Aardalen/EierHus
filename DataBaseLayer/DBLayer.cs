@@ -21,7 +21,6 @@ namespace DataBaseLayer
 
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"SELECT Eier.ID, Fornavn, Etternavn, Telefonnr, Adresse, PostNr.Postnr, Sted, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr", conn);
-                cmd.CommandType = CommandType.Text;
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -61,8 +60,10 @@ namespace DataBaseLayer
                 List<EierHusData> EierHus = new List<EierHusData>();
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Eier.ID, Fornavn, Etternavn, Telefonnr, Adresse, PostNr.Postnr, Sted, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE PostNr.Postnr = {TextBoxPostnr}", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("SELECT Eier.ID, Fornavn, Etternavn, Telefonnr, Adresse, PostNr.Postnr, Sted, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE PostNr.Postnr = @pn", conn);
+                
+                cmd.Parameters.AddWithValue("pn", TextBoxPostnr);
+
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -95,15 +96,17 @@ namespace DataBaseLayer
                 return null;
             }
         }
-        public List<EierHusData> GetAllDataFromEierAndHusWhereTLFnr(string TextBoxTLFnr)
+        public List<EierHusData> GetAllDataFromEierAndHusWhereTLFnr(int TextBoxTLFnr)
         {
             try
             {
                 List<EierHusData> EierHus = new List<EierHusData>();
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Eier.ID, Fornavn, Etternavn, Telefonnr, Adresse, PostNr.Postnr, Sted, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE Telefonnr = {TextBoxTLFnr}", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"SELECT Eier.ID, Fornavn, Etternavn, Telefonnr, Adresse, PostNr.Postnr, Sted, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE Telefonnr = @tlf", conn);
+
+                cmd.Parameters.AddWithValue("tlf", TextBoxTLFnr);
+
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -143,8 +146,10 @@ namespace DataBaseLayer
                 List<EierHusData> EierHus = new List<EierHusData>();
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Eier.ID, Fornavn, Etternavn, Telefonnr, Adresse, PostNr.Postnr, Sted, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID\r\nINNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE Boligtype = '{TextBoxBoligtype}'", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"SELECT Eier.ID, Fornavn, Etternavn, Telefonnr, Adresse, PostNr.Postnr, Sted, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE Boligtype = @bt", conn);
+
+                cmd.Parameters.AddWithValue("bt", TextBoxBoligtype);
+
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -182,8 +187,10 @@ namespace DataBaseLayer
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"UPDATE EierHus SET EierHus.ID = 13 WHERE EierHus.ID = {ID} ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"UPDATE EierHus SET EierHus.ID = 13 WHERE EierHus.ID = @id", conn);
+
+                cmd.Parameters.AddWithValue("id", ID);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -191,8 +198,10 @@ namespace DataBaseLayer
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"Delete from TLFnr WHERE TLFnr.ID = {ID} ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"Delete from TLFnr WHERE TLFnr.ID = @id ", conn);
+
+                cmd.Parameters.AddWithValue("id", ID);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -200,8 +209,10 @@ namespace DataBaseLayer
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"DELETE FROM Eier WHERE ID = {ID}", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"DELETE FROM Eier WHERE ID = @id", conn);
+
+                cmd.Parameters.AddWithValue("id", ID);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -212,8 +223,12 @@ namespace DataBaseLayer
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"INSERT INTO Eier (Fornavn, Etternavn) VALUES ('{TextBoxFornavn}', '{TextBoxEtternavn}'); INSERT INTO TLFnr(Telefonnr, ID) SELECT {TextBoxTelefonnr}, ID FROM Eier WHERE fornavn = '{TextBoxFornavn}' AND etternavn = '{TextBoxEtternavn}';", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"INSERT INTO Eier (Fornavn, Etternavn) VALUES (@fn, @en); INSERT INTO TLFnr(Telefonnr, ID) SELECT @tlf, ID FROM Eier WHERE fornavn = @fn AND etternavn = @en;", conn);
+
+                cmd.Parameters.AddWithValue("fn", TextBoxFornavn);
+                cmd.Parameters.AddWithValue("en", TextBoxEtternavn);
+                cmd.Parameters.AddWithValue("tlf", TextBoxTelefonnr);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -224,8 +239,11 @@ namespace DataBaseLayer
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"INSERT INTO PostNr (Postnr, Sted) VALUES ('{TextBoxPostNr}', '{TextBoxPoststed}')", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"INSERT INTO PostNr (Postnr, Sted) VALUES (@pn, @ps)", conn);
+
+                cmd.Parameters.AddWithValue("pn", TextBoxPostNr);
+                cmd.Parameters.AddWithValue("ps", TextBoxPoststed);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -236,8 +254,19 @@ namespace DataBaseLayer
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"INSERT INTO Hus (Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår, Adresse, Postnr) VALUES ('{TextBoxBoligtype}', {TextBoxAntSov}, {TextBoxAntEta}, {TextBoxPrimærrom}, {TextBoxBruksareal}, {TextBoxTomteareal}, '{TextBoxHusfarge}', {TextBoxByggeår}, '{TextBoxAdresse}', '{TextBoxPostnummer}')", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"INSERT INTO Hus (Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår, Adresse, Postnr) VALUES (@bt, @as, @ae, @pr, @ba, @ta, @hf, @bå, @ad, @pn)", conn);
+                
+                cmd.Parameters.AddWithValue("bt", TextBoxBoligtype);
+                cmd.Parameters.AddWithValue("as", TextBoxAntSov);
+                cmd.Parameters.AddWithValue("ae", TextBoxAntEta);
+                cmd.Parameters.AddWithValue("pr", TextBoxPrimærrom);
+                cmd.Parameters.AddWithValue("ba", TextBoxBruksareal);
+                cmd.Parameters.AddWithValue("ta", TextBoxTomteareal);
+                cmd.Parameters.AddWithValue("hf", TextBoxHusfarge);
+                cmd.Parameters.AddWithValue("bå", TextBoxByggeår);
+                cmd.Parameters.AddWithValue("ad", TextBoxAdresse);
+                cmd.Parameters.AddWithValue("pn", TextBoxPostnummer);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -246,19 +275,33 @@ namespace DataBaseLayer
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"INSERT INTO EierHus (ID, HusID) VALUES (13, (SELECT TOP 1 HusID FROM Hus ORDER BY HusID desc))", conn);
-                cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (ArgumentOutOfRangeException) { }
         }
-        public void EditAllDataInAEier(string TextBoxFornavn, string TextBoxEtternavn, int ID, int TextBoxTelefonnr, string TextBoxBoligtype, int TextBoxAntSov, int TextBoxAntEta, int TextBoxPrimærrom, int TextBoxBruskareal, int TextBoxTomteareal, string TextBoxHusfarge, int TextBoxByggeår, string TextBoxAdresse, string TextBoxPostnummer)
+        public void EditAllDataInAEier(string TextBoxFornavn, string TextBoxEtternavn, int ID, int TextBoxTelefonnr, string TextBoxBoligtype, int TextBoxAntSov, int TextBoxAntEta, int TextBoxPrimærrom, int TextBoxBruksareal, int TextBoxTomteareal, string TextBoxHusfarge, int TextBoxByggeår, string TextBoxAdresse, string TextBoxPostnummer)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"UPDATE Eier Set Fornavn = '{TextBoxFornavn}', Etternavn = '{TextBoxEtternavn}' WHERE Eier.ID = {ID} UPDATE Hus SET Boligtype = '{TextBoxBoligtype}', AntallSoverom = {TextBoxAntSov}, AntallEtasjer = {TextBoxAntEta}, Primærrom = {TextBoxPrimærrom}, Bruksareal = {TextBoxBruskareal}, Tomteareal = {TextBoxTomteareal}, Farge = '{TextBoxHusfarge}', Byggeår = {TextBoxByggeår}, Adresse = '{TextBoxAdresse}', Postnr = '{TextBoxPostnummer}' From EierHus, Hus, Eier WHERE Hus.HusID = EierHus.HusID AND (SELECT Eier.ID WHERE Eier.ID = {ID}) = (SELECT EierHus.ID WHERE EierHus.ID = {ID}) UPDATE TLFnr SET Telefonnr = {TextBoxTelefonnr} From TLFnr, Eier WHERE TLFnr.ID = (SELECT Eier.ID WHERE Eier.ID = {ID})", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"UPDATE Eier Set Fornavn = @fn, Etternavn = @en WHERE Eier.ID = @id UPDATE Hus SET Boligtype = @bt, AntallSoverom = @as, AntallEtasjer = @ae, Primærrom = @pr, Bruksareal = @ba, Tomteareal = @ta, Farge = @hf, Byggeår = @bå, Adresse = @ad, Postnr = @pn From EierHus, Hus, Eier WHERE Hus.HusID = EierHus.HusID AND (SELECT Eier.ID WHERE Eier.ID = @id) = (SELECT EierHus.ID WHERE EierHus.ID = @id) UPDATE TLFnr SET Telefonnr = @tlf From TLFnr, Eier WHERE TLFnr.ID = (SELECT Eier.ID WHERE Eier.ID = @id)", conn);
+
+                cmd.Parameters.AddWithValue("fn", TextBoxFornavn);
+                cmd.Parameters.AddWithValue("en", TextBoxEtternavn);
+                cmd.Parameters.AddWithValue("id", ID);
+                cmd.Parameters.AddWithValue("tlf", TextBoxTelefonnr);
+                cmd.Parameters.AddWithValue("bt", TextBoxBoligtype);
+                cmd.Parameters.AddWithValue("as", TextBoxAntSov);
+                cmd.Parameters.AddWithValue("ae", TextBoxAntEta);
+                cmd.Parameters.AddWithValue("pr", TextBoxPrimærrom);
+                cmd.Parameters.AddWithValue("ba", TextBoxBruksareal);
+                cmd.Parameters.AddWithValue("ta", TextBoxTomteareal);
+                cmd.Parameters.AddWithValue("hf", TextBoxHusfarge);
+                cmd.Parameters.AddWithValue("bå", TextBoxByggeår);
+                cmd.Parameters.AddWithValue("ad", TextBoxAdresse);
+                cmd.Parameters.AddWithValue("pn", TextBoxPostnummer);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -271,8 +314,10 @@ namespace DataBaseLayer
                 List<EierHusData> EierHus = new List<EierHusData>();
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Fornavn, Etternavn, Telefonnr, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår, Adresse, PostNr.Postnr, Sted FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE Eier.ID = {ID}", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"SELECT Fornavn, Etternavn, Telefonnr, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår, Adresse, PostNr.Postnr, Sted FROM Eier INNER JOIN EierHus ON EierHus.ID = Eier.ID INNER JOIN Hus ON Hus.HusID = EierHus.HusID INNER JOIN TLFnr ON TLFnr.ID = Eier.ID INNER JOIN PostNr ON PostNr.Postnr = Hus.Postnr WHERE Eier.ID = @id", conn);
+
+                cmd.Parameters.AddWithValue("id", ID);
+
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -313,7 +358,6 @@ namespace DataBaseLayer
 
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"SELECT Eier.ID, Fornavn, Etternavn, Telefonnr FROM eier LEFT JOIN EierHus ON eierhus.ID = Eier.ID LEFT JOIN TLFnr ON TLFnr.ID = Eier.ID WHERE EierHus.HusID IS NULL", conn);
-                cmd.CommandType = CommandType.Text;
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -346,7 +390,6 @@ namespace DataBaseLayer
 
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"SELECT Hus.HusID, Boligtype, AntallSoverom, AntallEtasjer, Primærrom, Bruksareal, Tomteareal, Farge, Byggeår , Adresse, Hus.Postnr, Sted FROM Hus LEFT JOIN PostNr ON Hus.Postnr = PostNr.Postnr LEFT JOIN EierHus ON Hus.HusID = EierHus.HusID WHERE EierHus.ID = 13", conn);
-                cmd.CommandType = CommandType.Text;
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -381,8 +424,11 @@ namespace DataBaseLayer
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"UPDATE EierHus SET ID = {EierID} WHERE ID = 13 AND HusID = {HusID}", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand($"UPDATE EierHus SET ID = @eid WHERE ID = 13 AND HusID = @hid", conn);
+
+                cmd.Parameters.AddWithValue("eid", EierID);
+                cmd.Parameters.AddWithValue("hid", HusID);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -396,7 +442,6 @@ namespace DataBaseLayer
 
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"SELECT Postnr, Sted FROM PostNr ORDER BY Postnr ASC", conn);
-                cmd.CommandType = CommandType.Text;
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())

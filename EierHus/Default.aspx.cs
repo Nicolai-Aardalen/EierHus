@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace EierHus
 {
@@ -31,7 +32,7 @@ namespace EierHus
         }
         protected void TLFnrSøk_Click(object sender, EventArgs e)
         {
-            List<EierHusData> ehd = db.GetAllDataFromEierAndHusWhereTLFnr(TextBoxTLFnr.Text);
+            List<EierHusData> ehd = db.GetAllDataFromEierAndHusWhereTLFnr(int.Parse(TextBoxTLFnr.Text));
             GridView1.DataSource = ehd;
             GridView1.DataBind();
         }

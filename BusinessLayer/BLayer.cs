@@ -18,7 +18,7 @@ namespace BusinessLayer
             List<EierHusData> list = new List<EierHusData>();
             return dbl.GetAllDataFromEierAndHusWherePostnr(TextBoxPostnr);
         }
-        public List<EierHusData> GetAllDataFromEierAndHusWhereTLFnr(string TextBoxTLFnr)
+        public List<EierHusData> GetAllDataFromEierAndHusWhereTLFnr(int TextBoxTLFnr)
         {
             List<EierHusData> list = new List<EierHusData>();
             return dbl.GetAllDataFromEierAndHusWhereTLFnr(TextBoxTLFnr);
@@ -44,9 +44,9 @@ namespace BusinessLayer
         {
             dbl.AddHusData(TextBoxBoligtype, TextBoxAntSov, TextBoxAntEta, TextBoxPrimærrom, TextBoxBruksareal, TextBoxTomteareal, TextBoxHusfarge, TextBoxByggeår, TextBoxAdresse, TextBoxPostnummer);
         }
-        public void EditAllDataInAEier(string TextBoxFornavn, string TextBoxEtternavn, int ID, int TextBoxTelefonnr, string TextBoxBoligtype, int TextBoxAntSov, int TextBoxAntEta, int TextBoxPrimærrom, int TextBoxBruskareal, int TextBoxTomteareal, string TextBoxHusfarge, int TextBoxByggeår, string TextBoxAdresse, string TextBoxPostnummer)
+        public void EditAllDataInAEier(string TextBoxFornavn, string TextBoxEtternavn, int ID, int TextBoxTelefonnr, string TextBoxBoligtype, int TextBoxAntSov, int TextBoxAntEta, int TextBoxPrimærrom, int TextBoxBruksareal, int TextBoxTomteareal, string TextBoxHusfarge, int TextBoxByggeår, string TextBoxAdresse, string TextBoxPostnummer)
         {
-            dbl.EditAllDataInAEier(TextBoxFornavn, TextBoxEtternavn, ID, TextBoxTelefonnr, TextBoxBoligtype, TextBoxAntSov, TextBoxAntEta, TextBoxPrimærrom, TextBoxBruskareal, TextBoxTomteareal, TextBoxHusfarge, TextBoxByggeår, TextBoxAdresse, TextBoxPostnummer);
+            dbl.EditAllDataInAEier(TextBoxFornavn, TextBoxEtternavn, ID, TextBoxTelefonnr, TextBoxBoligtype, TextBoxAntSov, TextBoxAntEta, TextBoxPrimærrom, TextBoxBruksareal, TextBoxTomteareal, TextBoxHusfarge, TextBoxByggeår, TextBoxAdresse, TextBoxPostnummer);
         }
         public List<EierHusData> GetAllDataWhereID(int ID)
         {
