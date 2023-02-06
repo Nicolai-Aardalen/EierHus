@@ -29,9 +29,9 @@
             <asp:TextBox ID="TextBoxBoligtype" runat="server"></asp:TextBox> Boligtype<br/>
             <asp:TextBox ID="TextBoxAntSov" runat="server"></asp:TextBox> Antall Soverom<br/>
             <asp:TextBox ID="TextBoxAntEta" runat="server"></asp:TextBox> Antall Etasjer<br/>
-            <asp:TextBox ID="TextBoxPrimærrom" runat="server"></asp:TextBox> Primærrom<br/>
-            <asp:TextBox ID="TextBoxBruksareal" runat="server"></asp:TextBox> Bruskareal<br/>
-            <asp:TextBox ID="TextBoxTomteareal" runat="server"></asp:TextBox> Tomteareal<br/>
+            <asp:TextBox ID="TextBoxPrimærrom" runat="server"></asp:TextBox> Primærrom i m²<br/>
+            <asp:TextBox ID="TextBoxBruksareal" runat="server"></asp:TextBox> Bruskareal i m²<br/>
+            <asp:TextBox ID="TextBoxTomteareal" runat="server"></asp:TextBox> Tomteareal i m²<br/>
             <asp:TextBox ID="TextBoxHusfarge" runat="server"></asp:TextBox> Husfarge<br/>
             <asp:TextBox ID="TextBoxByggeår" runat="server"></asp:TextBox> Byggeår<br/>
             <asp:TextBox ID="TextBoxAdresse" runat="server"></asp:TextBox> Adresse<br/>

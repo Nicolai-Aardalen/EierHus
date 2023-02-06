@@ -32,13 +32,13 @@ namespace DataBaseLayer
                     ehd.Adresse = (string)reader["Adresse"];
                     ehd.Postnr = (string)reader["Postnr"];
                     ehd.Sted = (string)reader["Sted"];
-                    ehd.Telefonnr = (int)reader["Telefonnr"];
+                    ehd.Telefonnr = $"+47 {(int)reader["Telefonnr"]}";
                     ehd.Boligtype = (string)reader["Boligtype"];
                     ehd.AntallSoverom = (int)reader["AntallSoverom"];
                     ehd.AntallEtasjer = (int)reader["AntallEtasjer"];
-                    ehd.Primærrom = (int)reader["Primærrom"];
-                    ehd.Bruksareal = (int)reader["Bruksareal"];
-                    ehd.Tomteareal = (int)reader["Tomteareal"];
+                    ehd.Primærrom = $"{(int)reader["Primærrom"]} m²";
+                    ehd.Bruksareal = $"{(int)reader["Bruksareal"]} m²";
+                    ehd.Tomteareal = $"{(int)reader["Tomteareal"]} m²";
                     ehd.Farge = (string)reader["Farge"];
                     ehd.Byggeår = (int)reader["Byggeår"];
                     EierHus.Add(ehd);
@@ -75,13 +75,13 @@ namespace DataBaseLayer
                     ehd.Adresse = (string)reader["Adresse"];
                     ehd.Postnr = (string)reader["Postnr"];
                     ehd.Sted = (string)reader["Sted"];
-                    ehd.Telefonnr = (int)reader["Telefonnr"];
+                    ehd.Telefonnr = $"+47 {(int)reader["Telefonnr"]}";
                     ehd.Boligtype = (string)reader["Boligtype"];
                     ehd.AntallSoverom = (int)reader["AntallSoverom"];
                     ehd.AntallEtasjer = (int)reader["AntallEtasjer"];
-                    ehd.Primærrom = (int)reader["Primærrom"];
-                    ehd.Bruksareal = (int)reader["Bruksareal"];
-                    ehd.Tomteareal = (int)reader["Tomteareal"];
+                    ehd.Primærrom = $"{(int)reader["Primærrom"]} m²";
+                    ehd.Bruksareal = $"{(int)reader["Bruksareal"]} m²";
+                    ehd.Tomteareal = $"{(int)reader["Tomteareal"]} m²";
                     ehd.Farge = (string)reader["Farge"];
                     ehd.Byggeår = (int)reader["Byggeår"];
                     EierHus.Add(ehd);
@@ -118,13 +118,13 @@ namespace DataBaseLayer
                     ehd.Adresse = (string)reader["Adresse"];
                     ehd.Postnr = (string)reader["Postnr"];
                     ehd.Sted = (string)reader["Sted"];
-                    ehd.Telefonnr = (int)reader["Telefonnr"];
+                    ehd.Telefonnr = $"+47 {(int)reader["Telefonnr"]}";
                     ehd.Boligtype = (string)reader["Boligtype"];
                     ehd.AntallSoverom = (int)reader["AntallSoverom"];
                     ehd.AntallEtasjer = (int)reader["AntallEtasjer"];
-                    ehd.Primærrom = (int)reader["Primærrom"];
-                    ehd.Bruksareal = (int)reader["Bruksareal"];
-                    ehd.Tomteareal = (int)reader["Tomteareal"];
+                    ehd.Primærrom = $"{(int)reader["Primærrom"]} m²";
+                    ehd.Bruksareal = $"{(int)reader["Bruksareal"]} m²";
+                    ehd.Tomteareal = $"{(int)reader["Tomteareal"]} m²";
                     ehd.Farge = (string)reader["Farge"];
                     ehd.Byggeår = (int)reader["Byggeår"];
                     EierHus.Add(ehd);
@@ -161,13 +161,13 @@ namespace DataBaseLayer
                     ehd.Adresse = (string)reader["Adresse"];
                     ehd.Postnr = (string)reader["Postnr"];
                     ehd.Sted = (string)reader["Sted"];
-                    ehd.Telefonnr = (int)reader["Telefonnr"];
+                    ehd.Telefonnr = $"+47 {(int)reader["Telefonnr"]}";
                     ehd.Boligtype = (string)reader["Boligtype"];
                     ehd.AntallSoverom = (int)reader["AntallSoverom"];
                     ehd.AntallEtasjer = (int)reader["AntallEtasjer"];
-                    ehd.Primærrom = (int)reader["Primærrom"];
-                    ehd.Bruksareal = (int)reader["Bruksareal"];
-                    ehd.Tomteareal = (int)reader["Tomteareal"];
+                    ehd.Primærrom = $"{(int)reader["Primærrom"]} m²";
+                    ehd.Bruksareal = $"{(int)reader["Bruksareal"]} m²";
+                    ehd.Tomteareal = $"{(int)reader["Tomteareal"]} m²";
                     ehd.Farge = (string)reader["Farge"];
                     ehd.Byggeår = (int)reader["Byggeår"];
                     EierHus.Add(ehd);
@@ -328,13 +328,13 @@ namespace DataBaseLayer
                     ehd.Adresse = (string)reader["Adresse"];
                     ehd.Postnr = (string)reader["Postnr"];
                     ehd.Sted = (string)reader["Sted"];
-                    ehd.Telefonnr = (int)reader["Telefonnr"];
+                    ehd.Telefonnr = $"+47 {(int)reader["Telefonnr"]}";
                     ehd.Boligtype = (string)reader["Boligtype"];
                     ehd.AntallSoverom = (int)reader["AntallSoverom"];
                     ehd.AntallEtasjer = (int)reader["AntallEtasjer"];
-                    ehd.Primærrom = (int)reader["Primærrom"];
-                    ehd.Bruksareal = (int)reader["Bruksareal"];
-                    ehd.Tomteareal = (int)reader["Tomteareal"];
+                    ehd.Primærrom = $"{(int)reader["Primærrom"]} m²";
+                    ehd.Bruksareal = $"{(int)reader["Bruksareal"]} m²";
+                    ehd.Tomteareal = $"{(int)reader["Tomteareal"]} m²";
                     ehd.Farge = (string)reader["Farge"];
                     ehd.Byggeår = (int)reader["Byggeår"];
                     EierHus.Add(ehd);
@@ -368,7 +368,7 @@ namespace DataBaseLayer
                     ehd.Etternavn = (string)reader["Etternavn"];
                     if (ehd != null)
                     {
-                        ehd.Telefonnr = (int)reader["Telefonnr"];
+                        ehd.Telefonnr = $"+47 {(int)reader["Telefonnr"]}";
                     }
                     EierHus.Add(ehd);
                 }
@@ -399,9 +399,9 @@ namespace DataBaseLayer
                     ehd.Boligtype = (string)reader["Boligtype"];
                     ehd.AntallSoverom = (int)reader["AntallSoverom"];
                     ehd.AntallEtasjer = (int)reader["AntallEtasjer"];
-                    ehd.Primærrom = (int)reader["Primærrom"];
-                    ehd.Bruksareal = (int)reader["Bruksareal"];
-                    ehd.Tomteareal = (int)reader["Tomteareal"];
+                    ehd.Primærrom = $"{(int)reader["Primærrom"]} m²";
+                    ehd.Bruksareal = $"{(int)reader["Bruksareal"]} m²";
+                    ehd.Tomteareal = $"{(int)reader["Tomteareal"]} m²";
                     ehd.Farge = (string)reader["Farge"];
                     ehd.Byggeår = (int)reader["Byggeår"];
                     ehd.Adresse = (string)reader["Adresse"];
@@ -458,5 +458,61 @@ namespace DataBaseLayer
             }
             catch (Exception) { return null; }
         }
+        //private void ShowEiereWithPostStedUsingLINQ()
+        //{
+        //    DBLayer layer = new DBLayer();
+
+        //    var eiereDataTable = layer.GetAllEier();
+
+        //    var postNummerDataTable = layer.GetAllPostNummer();
+
+        //    var postNummers = (from DataRow row in postNummerDataTable.Rows
+        //                       select new
+        //                       {
+        //                           PostNummer = row["PostNummer"].ToString(),
+        //                           PostSted = row["PostSted"].ToString()
+        //                       }).ToList();
+
+
+        //    var eier = (from DataRow row in eiereDataTable.Rows
+        //                select new
+        //                {
+        //                    Fornavn = row["Fornavn"].ToString(),
+        //                    PostNummer = row["PostNummer"].ToString()
+        //                }).ToList();
+
+
+        //    var postnummer = from a in postNummers
+        //                     join b in eier on a.PostNummer equals b.PostNummer
+        //                     select new
+        //                     {
+        //                         b.PostNummer,
+        //                         a.PostSted,
+        //                         b.Fornavn
+        //                     };
+
+        //    GridView1.DataSource = postnummer;
+        //    GridView1.DataBind();
+        //}
+        //public DataTable GetAllEier()
+        //{
+        //    var connectionString = ConfigurationManager.ConnectionStrings["BoligEier"].ConnectionString;
+        //    DataTable dt = new DataTable();
+
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("SELECT * FROM Eier", conn);
+        //        cmd.CommandType = CommandType.Text;
+
+        //        SqlDataReader reader = cmd.ExecuteReader();
+
+        //        dt.Load(reader);
+
+        //        reader.Close();
+        //        conn.Close();
+        //    }
+        //    return dt;
+        //}
     }
 }

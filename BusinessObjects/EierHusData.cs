@@ -9,13 +9,13 @@
         public string Adresse { get; set; }
         public string Postnr { get; set; }
         public string Sted { get; set; }
-        public int Telefonnr { get; set; }
+        public string Telefonnr { get; set; }
         public string Boligtype { get; set; }
         public int AntallSoverom { get; set; }
         public int AntallEtasjer { get; set; }
-        public int Primærrom { get; set; }
-        public int Bruksareal { get; set; }
-        public int Tomteareal { get; set; }
+        public string Primærrom { get; set; }
+        public string Bruksareal { get; set; }
+        public string Tomteareal { get; set; }
         public string Farge { get; set; }
         public int Byggeår { get; set; }
     }

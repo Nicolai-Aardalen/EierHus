@@ -42,17 +42,17 @@ namespace EierHus
         {
             TextBoxFornavn.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[0].Text);
             TextBoxEtternavn.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[1].Text);
-            TextBoxTelefonnr.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[2].Text);
+            TextBoxTelefonnr.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[2].Text).Replace("+47 ", "");
             TextBoxBoligtype.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[3].Text);
             TextBoxAntSov.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[4].Text);
             TextBoxAntEta.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[5].Text);
-            TextBoxPrimærrom.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[6].Text);
-            TextBoxBruksareal.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[7].Text);
-            TextBoxTomteareal.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[8].Text);
+            TextBoxPrimærrom.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[6].Text).Replace(" m²", "");
+            TextBoxBruksareal.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[7].Text).Replace(" m²", "");
+            TextBoxTomteareal.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[8].Text).Replace(" m²", "");
             TextBoxHusfarge.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[9].Text);
             TextBoxByggeår.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[10].Text);
             TextBoxAdresse.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[11].Text);
-            TextBoxPostnr.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[12].Text);
+            TextBoxPostnr.Text = Server.HtmlDecode(GridViewInvis.Rows[0].Cells[12].Text).Trim();
         }
 
         protected void Edit_Click(object sender, EventArgs e)
